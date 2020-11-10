@@ -8,8 +8,7 @@ sum:	# int sum(int *a, int n)
 	li	$t1,	0			# Initialize the accumulator
 sum.loop:
 	bge	$t0,	$a1,	sum.done	# As long as i < n
-	sll	$t2,	$t0,	2		# Get the element the index is pointing to
-	addu	$t2,	$t2,	$a0
+	nth	$t2,	$a0,	$t0		# Get the element the index is pointing to
 	lw	$t2,	($t2)
 	add	$t1,	$t1,	$t2		# Add the element to the accumulator
 	addi	$t0,	$t0,	1		# Increment the index
